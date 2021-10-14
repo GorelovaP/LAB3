@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LAB3</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header>
+    <img src="../resource/tel.jpg" alt="логотип" class="logo">
+    <span>TELELIFE -  Компании по продаже мобильных телефонов</span>
+</header>
+<article>
+    <div class="modal">
+        <p>Результаты</p>
+        <table id="tableResults">
+            <thead>
+            <tr>
+                <th>ФИО</th>
+                <th>Дата Рождения</th>
+                <th>Предпочтение производителю</th>
+                <th>Операционная система</th>
+                <th>Внимание на сопутствующие товары</th>
+                <th>Ваш телефон</th>
+                <th>?</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+    <form name="quize" method="post" class="form">
+        <h1>Опрос</h1>
+        <div class="formItem">
+            <label FOR="FIO" class="question"> Введите Фио:</label>
+            <input type="text" id="FIO">
+        </div>
+        <div>
+            <label class="question"> Введите дату и время заполнения:
+                <input type="datetime-local" id="datetime" value="2020-10-15T10:30"
+                       min="1920-01-01T00:01" max="2015-01-01T23:59">
+            </label>
+        </div>
+        <div class="checkfild">
+            <p class="question">Отдаете ли вы предпочтение какому-то определенному производителю, и если да, то какому?
+                (возможно
+                несколько
+                вариантов ответа) </p>
+            <div class="checkbox">
+                <input type="checkbox" id="option1"><label for="option1" class="option">нет</label>
+                <input type="checkbox" id="option2"><label for="option2" class="option">Samsung</label>
+                <input type="checkbox" id="option3"><label for="option3" class="option">Nokia</label>
+                <input type="checkbox" id="option4"><label for="option4" class="option">Apple</label>
+                <input type="checkbox" id="option5"><label for="option5" class="option">Huawei</label>
+                <input type="checkbox" id="option6"><label for="option6" class="option">Sony</label>
+                <input type="checkbox" id="option7"><label for="option7" class="option"> HTC</label>
+                <input type="checkbox" id="option8"><label for="option8" class="option"> Другой</label>
+            </div>
+
+        </div>
+        <div>
+            <label class="question"> Какой операционной системе вы отдаете предпочтение?
+                <select>
+                    <option value="A">Android</option>
+                    <option value="B">Apple iOS</option>
+                    <option value="C">Microsoft</option>
+                </select>
+            </label>
+        </div>
+        <div>
+            <p class="question">При выборе телефона обращаете ли вы внимание на наличие и цены на сопутствующие товары
+                (гарнитура, чехол
+                и пр.)?</p>
+            <input name="radio" type="radio" id="radio1"><label for="radio1" class="radio">нет</label>
+            <input name="radio" type="radio" id="radio2"><label for="radio2" class="radio">да</label>
+        </div>
+        <div class="textbox">
+            <label class="labtextarea question" for="textarea"> Каким телефоном вы пользуетесь? Если их несколько,
+                напишите все
+                (марка и модель)</label>
+            <textarea name="textarea" id="textarea" cols="10" rows="4"></textarea>
+        </div>
+        <div class="formItem">
+            <label for="l" class="question"> vjdnvdn</label>
+            <input type="text" id="l">
+
+        </div>
+        <div class="buttons">
+            <button type="submit" class="submit" onclick="addRow()">Отправить</button>
+            <button type="reset" class="reset">Сброс</button>
+        </div>
+    </form>
+</article>
+<nav>
+    <h2>Навигация</h2>
+    <div class="NavBlock">
+        <a href="index.html">Главная</a>
+        <a href="#" id="linkResults">Результаты</a>
+    </div>
+</nav>
+<aside>
+    <h3> Здесь могла быть ваша реклама </h3>
+    <div class="advertisement">Реклама 1</div>
+    <div class="advertisement">Реклама 2</div>
+    <div class="advertisement">Реклама 3</div>
+</aside>
+
+
+<footer>
+    <span>
+        Все права защищены © 2021 | LAB 3 – Вариант 6 - опрос покупателя мобильного телефона по его предпочтениям
+    </span>
+</footer>
+</body>
+<script>
+    //добавление модального окна
+    document.getElementById("linkResults").addEventListener('click', function () {
+        let mod = document.querySelector(".modal");
+        mod.classList.add("active")
+    });
+
+    function addRow() {
+        // let table = document.getElementById("tableResults");
+        // let row = document.createElement('tr');
+        // let td1 = document.createElement('td');
+        // let td2 = document.createElement('td');
+        // // var td3 = document.createElement('td');
+        // // var td4 = document.createElement('td');
+        // // var td5 = document.createElement('td');
+        // // var td6 = document.createElement('td');
+        // // var td7 = document.createElement('td');
+        // td1.innerHTML = document.getElementById('FIO').value;
+        // td2.innerHTML = document.getElementById('datetime').value;
+        // // td3.innerHTML = document.getElementById('gender').value;
+        // // td4.innerHTML = document.getElementById('gender').value;
+        // // td5.innerHTML = document.getElementById('gender').value;
+        // // td6.innerHTML = document.getElementById('gender').value;
+        // // td7.innerHTML = document.getElementById('gender').value;
+        // row.appendChild(td1);
+        // row.appendChild(td2);
+        // // row.appendChild(td3);
+        // // row.appendChild(td4);
+        // // row.appendChild(td5);
+        // // row.appendChild(td6);
+        // // row.appendChild(td7);
+        // table.children[0].appendChild(row);
+
+
+
+
+    }
+
+
+</script>
+</html>

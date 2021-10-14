@@ -1,0 +1,312 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100vh;
+}
+
+header, footer{
+    width: 100%;
+    height: 10%;
+    background: #474646;
+}
+
+header span{
+    background-color: rgba(232, 48, 48, 0.82);
+    display: inline-block;
+    color: #d5d3d3;
+    font-family: Maler, serif ;
+    font-size: 2em;
+}
+h3 {
+    text-align: center;
+    background-color: rgba(232, 48, 48, 0.82);
+    color: #d5d3d3;
+    font-family: Maler, serif ;
+}
+header img{
+    height: 10vh;
+}
+
+header{
+    display: flex;
+    align-items: center;
+}
+
+footer{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #312c2c;
+}
+
+article {
+    position: relative;
+    width: 60%;
+    background: url("../resource/stal.jpg") no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.form{
+    background: rgba(128, 128, 128, 0.9);
+    font-size: 18px;
+    width: 96%;
+   min-height: 96%;
+    border-radius: 5%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+
+}
+.form > div{
+    margin-top: 15px;
+    width: 75%;
+}
+.formItem input{
+width: 100%;
+}
+.checkfild{
+    height: 160px;
+}
+.checkbox{
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+.checkbox label{
+    width: 30%;
+}
+h1, .modal>p{
+    margin-top: 10px;
+    font-size: 30px;
+    text-align: center;
+    color: #312c2c;
+    font-family: Maler, serif ;
+}
+textarea{
+    width: 100%;
+    resize: none;
+}
+
+.textbox{
+    display: flex;
+    flex-direction: column;
+}
+
+#FIO, textarea, #l, input[type="datetime-local"]{
+    border: 1px solid white;
+    border-radius: 5%;
+    background: rgba(66, 65, 65, 0.58);
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+textarea:focus,#FIO:focus, #l:focus, input[type="datetime-local"]:focus{
+    background: #909090;
+    box-shadow: white;
+    color: black;
+    font-weight: bold;
+}
+
+
+select{
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10%;
+    border: 2px solid #ffffff;
+    width: 120px;
+    height: 30px;
+    background: #4e4c4c;
+    color:white ;
+}
+select:focus{
+    border: 2px solid red;
+}
+
+
+input[type=checkbox], input[type=radio] {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+input[type=checkbox] + label, input[type=radio]+label {
+    position: relative;
+    padding: 0 0 0 30px;
+    cursor: pointer;
+}
+input[type=checkbox] + label:before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background: #CDD1DA;
+    box-shadow: inset 0 2px 3px rgba(0,0,0,.2);
+    transition: 0.2s;
+}
+
+.radio, .option{
+    color: #e5e3e3;
+    font-size: 20px;
+}
+
+
+input[type=checkbox]:checked + label:before, input[type=radio]:checked + label:before,input[type=checkbox]:checked:hover + label:before, input[type=radio]:checked:hover + label:before {
+    background: #b8f39e;
+}
+input[type=checkbox]:hover + label:before, input[type=radio]:hover + label:before {
+    background: #9699a0;
+}
+
+input[type=radio] + label:before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #CDD1DA;
+    box-shadow: inset 0 2px 3px rgba(0,0,0,.2);
+    transition: 0.2s;
+}
+
+
+
+
+
+
+.question{
+    font-family: Maler, serif ;
+}
+
+nav {
+    min-height: calc(100vh - 20%);
+    width: 20%;
+    background: white;
+}
+
+h2{
+    color: #312c2c;
+    font-family: Maler, serif;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.NavBlock{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.NavBlock a{
+    text-decoration: none;
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #474646;
+}
+
+
+
+
+aside {
+    min-height: calc(100vh - 20%);
+    width: 20%;
+    background: #2b2b2b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+.advertisement {
+    background-color: #d5d3d3;
+    width: 150px;
+    height: 150px;
+    border-radius: 5%;
+    border: #151414 3px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal{
+    display: none;
+    position: absolute;
+    opacity: 0;
+    background: rgba(128, 128, 128, 1);
+    width: 96%;
+    height: 96%;
+    border-radius: 5%;
+    z-index: 30;
+}
+.active{
+    display: block;
+    opacity: 1;
+}
+table{
+    border: #151414 3px solid;
+    table-layout: fixed;
+    width: 90%;
+    margin: 20px auto 0 auto;
+    text-align: center;
+}
+td, th {
+    border-radius: 5%;
+    padding: 3px;
+    border: 1px solid black;
+}
+th
+{
+    font-size: small;
+    font-family: Maler, serif ;
+    background-color: rgba(66, 65, 65, 0.58);
+}
+.buttons{
+    text-align: center;
+}
+button{
+    margin: 10px 0;
+    background-color: rgb(232, 48, 48);
+    color: #d5d3d3;
+    font-family: Maler, serif ;
+    font-weight: bold;
+    width: 150px;
+    height: 50px;
+    border-radius: 5%;
+    border: 2px solid #4e4c4c;
+    box-shadow: inset 0 2px 3px rgba(0,0,0,.2);
+}
+.submit{
+    background: #b8f39e;
+    color: #4e4c4c;
+}
+.submit:hover{
+    background-color: #6fbf52;
+    cursor: pointer;
+}
+button:hover{
+    background-color: rgb(199, 41, 41);
+    cursor: pointer;
+}
+
+
+@font-face {
+    font-family: "Maler";
+    src: url("../resource/fonts/Maler.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
