@@ -105,7 +105,7 @@ textarea{
     flex-direction: column;
 }
 
-#FIO, textarea, #l, input[type="datetime-local"]{
+#FIO, textarea, #l, input[type="datetime-local"], .people input{
     border: 1px solid white;
     border-radius: 5%;
     background: rgba(66, 65, 65, 0.58);
@@ -132,7 +132,7 @@ select{
     color:white ;
 }
 select:focus{
-    border: 2px solid red;
+    border: 2px solid #b8f39e;;
 }
 
 
@@ -244,17 +244,21 @@ aside {
 }
 
 .modal{
-    display: none;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    visibility: hidden;
     position: absolute;
     opacity: 0;
     background: rgba(128, 128, 128, 1);
     width: 96%;
-    height: 96%;
+    min-height: 96%;
     border-radius: 5%;
     z-index: 30;
 }
+
 .active{
-    display: block;
+   visibility: visible;
     opacity: 1;
 }
 table{
@@ -269,7 +273,14 @@ td, th {
     padding: 3px;
     border: 1px solid black;
 }
-th
+.new{
+    background-color: rgba(246, 205, 205, 0.6);
+}
+
+.first{
+    background-color: #fcfbfb;
+}
+thead
 {
     font-size: small;
     font-family: Maler, serif ;
@@ -301,6 +312,14 @@ button{
 button:hover{
     background-color: rgb(199, 41, 41);
     cursor: pointer;
+}
+.people{
+    font-family: Maler, serif;
+    color: #d5d3d3;
+    font-size: large;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 

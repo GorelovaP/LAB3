@@ -20,26 +20,48 @@
             <thead>
             <tr>
                 <th>ФИО</th>
-                <th>Дата Рождения</th>
+                <th>Дата запол. анкеты</th>
                 <th>Предпочтение производителю</th>
                 <th>Операционная система</th>
                 <th>Внимание на сопутствующие товары</th>
                 <th>Ваш телефон</th>
-                <th>?</th>
+                <th>Н</th>
             </tr>
             </thead>
+            <tr class="first">
+                <td>Горелова Полина Васильевна</td>
+                <td>15.10.2020 10.00</td>
+                <td>Samsung</td>
+                <td>Android</td>
+                <td>Да</td>
+                <td>Samsung Note 8</td>
+                <td>?</td>
+            </tr>
         </table>
+        <button type="button" id="close" onClick="history.go(-1);">Назад</button>
+        <div class="people" >
+            <label for="peopleList">Люди,заполнившие анкету</label>
+            <input list="people" id="peopleList">
+            <datalist id="people">
+                <option name="people" value="Горелова Полина Васильевна">
+            </datalist>
+        </div>
     </div>
-    <form name="quize" method="post" class="form">
+    <form name="quize" method="post" class="form" action="#" id="myForm">
         <h1>Опрос</h1>
         <div class="formItem">
-            <label FOR="FIO" class="question"> Введите Фио:</label>
-            <input type="text" id="FIO">
+            <label FOR="FIO" class="question"> *Введите Фио:</label>
+            <input type="text"
+                   id="FIO"
+                   name="FIO"
+                   title="Разрешено использовать только пробелы и латинские буквы, не менее 6"
+                   pattern="^[A-Za-zА-Яа-яЁё\s]{6,}"
+            >
         </div>
         <div>
-            <label class="question"> Введите дату и время заполнения:
-                <input type="datetime-local" id="datetime" value="2020-10-15T10:30"
-                       min="1920-01-01T00:01" max="2015-01-01T23:59">
+            <label class=" question"> Введите дату и время заполнения:
+                <input type="datetime-local" id="datetime" value="2021-10-16T10:30"
+                       min="2021-10-15T00:01" max="2021-10-18T00:00">
             </label>
         </div>
         <div class="checkfild">
@@ -48,23 +70,39 @@
                 несколько
                 вариантов ответа) </p>
             <div class="checkbox">
-                <input type="checkbox" id="option1"><label for="option1" class="option">нет</label>
-                <input type="checkbox" id="option2"><label for="option2" class="option">Samsung</label>
-                <input type="checkbox" id="option3"><label for="option3" class="option">Nokia</label>
-                <input type="checkbox" id="option4"><label for="option4" class="option">Apple</label>
-                <input type="checkbox" id="option5"><label for="option5" class="option">Huawei</label>
-                <input type="checkbox" id="option6"><label for="option6" class="option">Sony</label>
-                <input type="checkbox" id="option7"><label for="option7" class="option"> HTC</label>
-                <input type="checkbox" id="option8"><label for="option8" class="option"> Другой</label>
+                <input type="checkbox" id="option1" name="choice" value="нет">
+                <label for="option1" class="option">нет</label>
+
+                <input type="checkbox" id="option2" name="choice" value="Samsung">
+                <label for="option2" class="option">Samsung</label>
+
+                <input type="checkbox" id="option3" name="choice" value="Nokia">
+                <label for="option3" class="option">Nokia</label>
+
+                <input type="checkbox" id="option4" name="choice" value="Apple">
+                <label for="option4" class="option">Apple</label>
+
+                <input type="checkbox" id="option5" name="choice" value="Huawei">
+                <label for="option5" class="option">Huawei</label>
+
+                <input type="checkbox" id="option6" name="choice" value="Sony">
+                <label for="option6"   class="option">Sony</label>
+
+                <input type="checkbox" id="option7" name="choice" value="HTC">
+                <label for="option7" class="option">HTC</label>
+
+                <input type="checkbox" id="option8" name="choice" value="Другой">
+                <label for="option8" class="option">Другой</label>
+
             </div>
 
         </div>
         <div>
             <label class="question"> Какой операционной системе вы отдаете предпочтение?
                 <select>
-                    <option value="A">Android</option>
-                    <option value="B">Apple iOS</option>
-                    <option value="C">Microsoft</option>
+                    <option name="select" value="Android">Android</option>
+                    <option name="select" value="Apple iOS">Apple iOS</option>
+                    <option name="select" value="Microsoft">Microsoft</option>
                 </select>
             </label>
         </div>
@@ -72,8 +110,8 @@
             <p class="question">При выборе телефона обращаете ли вы внимание на наличие и цены на сопутствующие товары
                 (гарнитура, чехол
                 и пр.)?</p>
-            <input name="radio" type="radio" id="radio1"><label for="radio1" class="radio">нет</label>
-            <input name="radio" type="radio" id="radio2"><label for="radio2" class="radio">да</label>
+            <input name="radio" type="radio" id="radio1" value="Нет"><label for="radio1" class="radio">Нет</label>
+            <input name="radio" type="radio" id="radio2" value="Да"><label for="radio2" class="radio">Да</label>
         </div>
         <div class="textbox">
             <label class="labtextarea question" for="textarea"> Каким телефоном вы пользуетесь? Если их несколько,
@@ -81,13 +119,13 @@
                 (марка и модель)</label>
             <textarea name="textarea" id="textarea" cols="10" rows="4"></textarea>
         </div>
-        <div class="formItem">
+        <div class=" formItem">
             <label for="l" class="question"> vjdnvdn</label>
             <input type="text" id="l">
 
         </div>
         <div class="buttons">
-            <button type="submit" class="submit" onclick="addRow()">Отправить</button>
+            <button type="submit" class="submit">Отправить</button>
             <button type="reset" class="reset">Сброс</button>
         </div>
     </form>
@@ -95,7 +133,7 @@
 <nav>
     <h2>Навигация</h2>
     <div class="NavBlock">
-        <a href="index.html">Главная</a>
+        <a href="#" id="linkHome">Главная</a>
         <a href="#" id="linkResults">Результаты</a>
     </div>
 </nav>
@@ -114,43 +152,99 @@
 </footer>
 </body>
 <script>
-    //добавление модального окна
     document.getElementById("linkResults").addEventListener('click', function () {
         let mod = document.querySelector(".modal");
         mod.classList.add("active")
     });
 
-    function addRow() {
-        // let table = document.getElementById("tableResults");
-        // let row = document.createElement('tr');
-        // let td1 = document.createElement('td');
-        // let td2 = document.createElement('td');
-        // // var td3 = document.createElement('td');
-        // // var td4 = document.createElement('td');
-        // // var td5 = document.createElement('td');
-        // // var td6 = document.createElement('td');
-        // // var td7 = document.createElement('td');
-        // td1.innerHTML = document.getElementById('FIO').value;
-        // td2.innerHTML = document.getElementById('datetime').value;
-        // // td3.innerHTML = document.getElementById('gender').value;
-        // // td4.innerHTML = document.getElementById('gender').value;
-        // // td5.innerHTML = document.getElementById('gender').value;
-        // // td6.innerHTML = document.getElementById('gender').value;
-        // // td7.innerHTML = document.getElementById('gender').value;
-        // row.appendChild(td1);
-        // row.appendChild(td2);
-        // // row.appendChild(td3);
-        // // row.appendChild(td4);
-        // // row.appendChild(td5);
-        // // row.appendChild(td6);
-        // // row.appendChild(td7);
-        // table.children[0].appendChild(row);
+    document.getElementById("linkHome").addEventListener('click', function () {
+        let mod = document.querySelector(".modal");
+        mod.classList.remove("active")
+    });
 
 
-
-
+    function getCheckedRadioByName(name) {
+        let a;
+        let el = document.getElementsByName(name);
+        for (let i = 0; i < el.length; i++) {
+            if (el[i].checked) a = el[i].value
+        }
+        return a
     }
 
+    function getCheckedSelectByName(name) {
+        let a;
+        let el = document.getElementsByName(name);
+        for (let i = 0; i < el.length; i++) {
+            if (el[i].selected) a = el[i].value
+        }
+        return a
+    }
 
+    function getCheckedCheckBoxByName(name) {
+        let checkboxes = document.getElementsByName(name);
+        let mass = [];
+        for (let i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) {
+                mass.push(` ${checkboxes[i].value}`)
+            }
+        }
+        return mass.join(', ');
+    }
+
+    document.getElementById('myForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        alert("Форма отправилась")
+        let table = document.getElementById('tableResults');
+        let row = document.createElement('tr');
+
+        let td1 = document.createElement('td');
+        td1.classList.add("new");
+        let td2 = document.createElement('td');
+        td2.classList.add("new");
+        let td3 = document.createElement('td');
+        td3.classList.add("new");
+        let td4 = document.createElement('td');
+        td4.classList.add("new");
+        let td5 = document.createElement('td');
+        td5.classList.add("new");
+        let td6 = document.createElement('td');
+        td6.classList.add("new");
+        let td7 = document.createElement('td');
+        td7.classList.add("new");
+
+
+        td1.innerHTML = document.getElementById('FIO').value;
+        if (td1.innerHTML.trim() === "") alert("Введите ФИО!");
+        td2.innerHTML = document.getElementById('datetime').value;
+        td3.innerHTML = getCheckedCheckBoxByName('choice');
+        td4.innerHTML = getCheckedSelectByName('select');
+        td5.innerHTML = getCheckedRadioByName("radio");
+        td6.innerHTML = document.getElementById("textarea").value;
+        td7.innerHTML = document.getElementById("l").value;
+
+
+        row.appendChild(td1);
+        row.appendChild(td2);
+        row.appendChild(td3);
+        row.appendChild(td4);
+        row.appendChild(td5);
+        row.appendChild(td6);
+        row.appendChild(td7);
+
+        table.children[1].insertBefore(row, table.children[1].childNodes[2]);
+
+
+        let names = []
+        names.push(td1.innerHTML);
+        console.log(names)
+        let people = document.getElementById("people")
+
+        for (let i = 0; i < names.length; i++) {
+            let el = document.createElement('option')
+            el.value = names[i]
+            people.appendChild(el)
+        }
+    })
 </script>
 </html>
