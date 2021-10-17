@@ -39,7 +39,7 @@
             </tr>
         </table>
         <button type="button" id="close" onClick="history.go(-1);">Назад</button>
-        <div class="people" >
+        <div class="people">
             <label for="peopleList">Люди,заполнившие анкету</label>
             <input list="people" id="peopleList">
             <datalist id="people">
@@ -59,7 +59,7 @@
             >
         </div>
         <div>
-            <label class=" question"> Введите дату и время заполнения:
+            <label class="question"> Введите дату и время заполнения:
                 <input type="datetime-local" id="datetime" value="2021-10-16T10:30"
                        min="2021-10-15T00:01" max="2021-10-18T00:00">
             </label>
@@ -86,7 +86,7 @@
                 <label for="option5" class="option">Huawei</label>
 
                 <input type="checkbox" id="option6" name="choice" value="Sony">
-                <label for="option6"   class="option">Sony</label>
+                <label for="option6" class="option">Sony</label>
 
                 <input type="checkbox" id="option7" name="choice" value="HTC">
                 <label for="option7" class="option">HTC</label>
@@ -110,7 +110,8 @@
             <p class="question">При выборе телефона обращаете ли вы внимание на наличие и цены на сопутствующие товары
                 (гарнитура, чехол
                 и пр.)?</p>
-            <input name="radio" type="radio" id="radio1" value="Нет"><label for="radio1" class="radio">Нет</label>
+            <input name="radio" type="radio" id="radio1" value="Нет" checked><label for="radio1"
+                                                                                    class="radio">Нет</label>
             <input name="radio" type="radio" id="radio2" value="Да"><label for="radio2" class="radio">Да</label>
         </div>
         <div class="textbox">
@@ -120,7 +121,7 @@
             <textarea name="textarea" id="textarea" cols="10" rows="4"></textarea>
         </div>
         <div class=" formItem">
-            <label for="l" class="question"> vjdnvdn</label>
+            <label for="l" class="question"> Понравилась ли вам анкета? Чем еще ее можно дополнить?</label>
             <input type="text" id="l">
 
         </div>
@@ -152,99 +153,6 @@
 </footer>
 </body>
 <script>
-    document.getElementById("linkResults").addEventListener('click', function () {
-        let mod = document.querySelector(".modal");
-        mod.classList.add("active")
-    });
 
-    document.getElementById("linkHome").addEventListener('click', function () {
-        let mod = document.querySelector(".modal");
-        mod.classList.remove("active")
-    });
-
-
-    function getCheckedRadioByName(name) {
-        let a;
-        let el = document.getElementsByName(name);
-        for (let i = 0; i < el.length; i++) {
-            if (el[i].checked) a = el[i].value
-        }
-        return a
-    }
-
-    function getCheckedSelectByName(name) {
-        let a;
-        let el = document.getElementsByName(name);
-        for (let i = 0; i < el.length; i++) {
-            if (el[i].selected) a = el[i].value
-        }
-        return a
-    }
-
-    function getCheckedCheckBoxByName(name) {
-        let checkboxes = document.getElementsByName(name);
-        let mass = [];
-        for (let i = 0; i < checkboxes.length; i++) {
-            if (checkboxes[i].checked) {
-                mass.push(` ${checkboxes[i].value}`)
-            }
-        }
-        return mass.join(', ');
-    }
-
-    document.getElementById('myForm').addEventListener('submit', function (e) {
-        e.preventDefault();
-        alert("Форма отправилась")
-        let table = document.getElementById('tableResults');
-        let row = document.createElement('tr');
-
-        let td1 = document.createElement('td');
-        td1.classList.add("new");
-        let td2 = document.createElement('td');
-        td2.classList.add("new");
-        let td3 = document.createElement('td');
-        td3.classList.add("new");
-        let td4 = document.createElement('td');
-        td4.classList.add("new");
-        let td5 = document.createElement('td');
-        td5.classList.add("new");
-        let td6 = document.createElement('td');
-        td6.classList.add("new");
-        let td7 = document.createElement('td');
-        td7.classList.add("new");
-
-
-        td1.innerHTML = document.getElementById('FIO').value;
-        if (td1.innerHTML.trim() === "") alert("Введите ФИО!");
-        td2.innerHTML = document.getElementById('datetime').value;
-        td3.innerHTML = getCheckedCheckBoxByName('choice');
-        td4.innerHTML = getCheckedSelectByName('select');
-        td5.innerHTML = getCheckedRadioByName("radio");
-        td6.innerHTML = document.getElementById("textarea").value;
-        td7.innerHTML = document.getElementById("l").value;
-
-
-        row.appendChild(td1);
-        row.appendChild(td2);
-        row.appendChild(td3);
-        row.appendChild(td4);
-        row.appendChild(td5);
-        row.appendChild(td6);
-        row.appendChild(td7);
-
-        table.children[1].insertBefore(row, table.children[1].childNodes[2]);
-
-
-        let names = []
-        names.push(td1.innerHTML);
-        console.log(names)
-        let people = document.getElementById("people")
-
-        for (let i = 0; i < names.length; i++) {
-            let el = document.createElement('option')
-            el.value = names[i]
-            people.appendChild(el)
-        }
-    })
 </script>
 </html>
