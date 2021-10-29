@@ -41,7 +41,7 @@ function getCheckedSelectByName(name) {
     let elements = document.getElementsByName(name);
     for ( let el of elements){
         if (el.selected) {
-            a = el.selected
+            a = el.value
         }
     }
     return a;
@@ -56,13 +56,12 @@ function getCheckedCheckBoxByName(name) {
         }
     }
 
-    if (mass.length === 0) alert("выбора не было")
+    if (mass.length === 0)    return "пусто";
     else return mass.join(', ');
 }
 
 document.getElementById('myForm').addEventListener('submit', function (e) {
     e.preventDefault();
-    alert("Форма отправилась")
     let table = document.getElementById('tableResults');
     let row = document.createElement('tr');
 
@@ -81,36 +80,43 @@ document.getElementById('myForm').addEventListener('submit', function (e) {
     let td7 = document.createElement('td');
     td7.classList.add("new");
 
-
-    td1.innerHTML = document.getElementById('FIO').value;
-    if (td1.innerHTML.trim() === "") alert("Введите ФИО!");
-    td2.innerHTML = document.getElementById('datetime').value;
     td3.innerHTML = getCheckedCheckBoxByName('choice');
-    td4.innerHTML = getCheckedSelectByName('select');
-    td5.innerHTML = getCheckedRadioByName("radio");
-    td6.innerHTML = document.getElementById("textarea").value;
-    td7.innerHTML = document.getElementById("l").value;
-
-
-    row.appendChild(td1);
-    row.appendChild(td2);
-    row.appendChild(td3);
-    row.appendChild(td4);
-    row.appendChild(td5);
-    row.appendChild(td6);
-    row.appendChild(td7);
-
-    table.children[1].insertBefore(row, table.children[1].childNodes[2]);
-
-
-    let names = []
-    names.push(td1.innerHTML);
-    console.log(names)
-    let people = document.getElementById("people")
-
-    for (let n of names) {
-        let el = document.createElement('option')
-        el.value = n
-        people.appendChild(el)
+    if (td3.innerHTML==="пусто"){
+        alert("Сделай выбор!")
     }
+    else {
+
+        alert("Форма отправилась")
+        td1.innerHTML = document.getElementById('FIO').value;
+        if (td1.innerHTML.trim() === "") alert("Введите ФИО!");
+        td2.innerHTML = document.getElementById('datetime').value;
+        td4.innerHTML = getCheckedSelectByName('select');
+        td5.innerHTML = getCheckedRadioByName("radio");
+        td6.innerHTML = document.getElementById("textarea").value;
+        td7.innerHTML = document.getElementById("l").value;
+
+
+        row.appendChild(td1);
+        row.appendChild(td2);
+        row.appendChild(td3);
+        row.appendChild(td4);
+        row.appendChild(td5);
+        row.appendChild(td6);
+        row.appendChild(td7);
+
+        table.children[1].insertBefore(row, table.children[1].childNodes[2]);
+
+
+        let names = []
+        names.push(td1.innerHTML);
+        console.log(names)
+        let people = document.getElementById("people")
+
+        for (let n of names) {
+            let el = document.createElement('option')
+            el.value = n
+            people.appendChild(el)
+        }
+    }
+
 })

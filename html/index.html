@@ -25,7 +25,7 @@
                 <th>Операционная система</th>
                 <th>Внимание на сопутствующие товары</th>
                 <th>Ваш телефон</th>
-                <th>Н</th>
+                <th>Чем еще ее можно дополнить?</th>
             </tr>
             </thead>
             <tr class="first">
@@ -35,7 +35,7 @@
                 <td>Android</td>
                 <td>Да</td>
                 <td>Samsung Note 8</td>
-                <td>?</td>
+                <td>Да,нет предложений</td>
             </tr>
         </table>
         <button type="button" id="close" onClick="history.go(-1);">Назад</button>
@@ -51,7 +51,8 @@
         <h1>Опрос</h1>
         <div class="formItem">
             <label FOR="FIO" class="question"> *Введите Фио:</label>
-            <input type="text"
+            <input required
+                    type="text"
                    id="FIO"
                    name="FIO"
                    title="Разрешено использовать только пробелы и латинские буквы, не менее 6"
@@ -100,7 +101,7 @@
         <div>
             <label class="question"> Какой операционной системе вы отдаете предпочтение?
                 <select>
-                    <option name="select" value="Android">Android</option>
+                    <option name="select" value="Android" selected>Android</option>
                     <option name="select" value="Apple iOS">Apple iOS</option>
                     <option name="select" value="Microsoft">Microsoft</option>
                 </select>
@@ -110,15 +111,16 @@
             <p class="question">При выборе телефона обращаете ли вы внимание на наличие и цены на сопутствующие товары
                 (гарнитура, чехол
                 и пр.)?</p>
-            <input name="radio" type="radio" id="radio1" value="Нет" checked><label for="radio1"
-                                                                                    class="radio">Нет</label>
-            <input name="radio" type="radio" id="radio2" value="Да"><label for="radio2" class="radio">Да</label>
+            <input name="radio" type="radio" id="radio1" value="Нет" checked>
+            <label for="radio1"             class="radio">Нет</label>
+            <input name="radio" type="radio" id="radio2" value="Да">
+            <label for="radio2" class="radio">Да</label>
         </div>
         <div class="textbox">
             <label class="labtextarea question" for="textarea"> Каким телефоном вы пользуетесь? Если их несколько,
                 напишите все
                 (марка и модель)</label>
-            <textarea name="textarea" id="textarea" cols="10" rows="4"></textarea>
+            <textarea name="textarea" id="textarea" cols="10" rows="4" required></textarea>
         </div>
         <div class=" formItem">
             <label for="l" class="question"> Понравилась ли вам анкета? Чем еще ее можно дополнить?</label>
